@@ -1,2 +1,2 @@
-# Diabetes-Prediction-Application
-Diabetes Prediction WebApplication
+# Diabetes Prediction Application
+
