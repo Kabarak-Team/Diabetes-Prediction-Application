@@ -10,7 +10,7 @@ from datetime import date
 import pickle
 import numpy as np
 
-model=pickle.load(open('tmodel.pkl','rb'));
+model=pickle.load(open('model.pkl','rb'));#WILL BE ADDED WHEN THE MACHINE LEARNING MODEL IS COMPLETED
 
 class PastWeekView(APIView):
     def get(self,request):
@@ -115,52 +115,3 @@ def predictor(obj):
     return output
 
 
-# class UserProfileViewSet(viewsets.ModelViewSet):
-#     queryset=UserProfile.objects.all()
-#     serializer_class = UserProfileSerializer
-#     permission_classes = [permissions.IsAuthenticated]
-#
-#     def get_queryset(self):
-#         queryset=UserProfile.objects.get(user=self.request.user)
-#         serializer=UserProfileSerializer(queryset)
-#         print(serializer.data)
-#         return Response(serializer.data);
-#
-#     def perform_create(self,serializer):
-#         serializer.save(user=self.request.user)
-#
-#     def perform_update(self, serializer):
-#         serializer.save(user=self.request.user)
-#
-#     def create(self,request):
-#         serializer=self.get_serializer(data=request.data)
-#         serializer.is_valid(raise_exception=True)
-#         self.perform_create(serializer)
-#         headers = self.get_success_headers(serializer.data)
-#         return Response(serializer.data, status=status.HTTP_201_CREATED, headers=headers)
-
-# class Predict(APIView):
-#     serializer_class=MedicalDataSerializer
-#
-#     def get_quertyset(self):
-#         medicalData = MedicalData.objects.all()
-#
-#
-#     def get(self, request):
-#         medicalData =MedicalData.objects.get(id=self.request.user.id)
-#         serializer=MedicalDataSerializer(medicalData, many=True)
-#         return Response(serializer.data)
-
-
-# class MedicalDataViewSet(viewsets.ModelViewSet):
-#     serializer_class = MedicalDataSerializer
-#     permission_classes = [permissions.IsAuthenticated]
-#
-#     def get_queryset(self):
-#         return self.request.user.medicalData.all()
-#
-#
-#     def perform_create(self, serializer):
-#         obj=self.request.data
-#         output=predictor(obj)
-#         serializer.save(owner=self.request.user,Result=output)
