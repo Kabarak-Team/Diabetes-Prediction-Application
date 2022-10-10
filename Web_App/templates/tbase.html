@@ -1,0 +1,78 @@
+{% load static %}
+
+{% block html %}
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+{% block head %}
+   <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static '' %}">
+    <title>Diabetes Prediction System</title>
+            <link href="{% static 'css/teams.css' %}" rel="stylesheet"/>
+            <link href="{% static 'css/responsiveteams.css' %}" rel="stylesheet"/>
+            <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet"/>
+            <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet"/>
+            
+    <!-- HTML5 Shim and Respond.js' %} IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js' %} doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js' %}"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js' %}/1.4.2/respond.min.js' %}"></script>
+<![endif]-->
+   {% block extra_style %}{% endblock extra_style %}
+</head>
+{% endblock head %}
+   
+   {% block body %}
+   
+       <body>
+    <!-- ============================================================== -->
+    <!-- Preloader - style you can find in spinners.css' %} -->
+    <!-- ============================================================== -->
+    {% comment %} <div class="preloader">
+        <div class="lds-ripple">
+            <div class="lds-pos"></div>
+            <div class="lds-pos"></div>
+        </div>
+    </div> {% endcomment %}
+    <!-- ============================================================== -->
+    <!-- Main wrapper - style you can find in pages.scss -->
+    <!-- ============================================================== -->
+    <div id="main-wrapper">
+          <div class="page-wrapper">
+           {% block content %}{% endblock content %}
+           {% include 'dashboard/includes/footer.html' %}
+         </div>
+    </div>
+
+    {% block script %}
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css"></script>
+        
+        {% comment %} <script>
+            $(document).ready(function () {
+                $('#example').DataTable();
+            });
+        </script>
+        <script>
+            $(document).ready(function () {
+                $('#zero_config').DataTable();
+            });
+        </script> {% endcomment %}
+
+    {% block extra_script %}{% endblock extra_script %}
+
+    
+    {% endblock script %}
+
+    </body>
+   {% endblock body %}
+
+
+{% endblock html %}
