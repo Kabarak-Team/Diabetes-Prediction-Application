@@ -15,8 +15,9 @@ def register(request):
         Password1 = request.POST['Password1']  
         Password2 = request.POST['Password2']
         
+        
         if Password1 == Password2:
-            if User.objects.filter(Username=Username).exists():
+            if User.objects.filter(Name=Name).exists():
                 messages.info(request,'Username Taken!')
                 return redirect('register')
             elif User.objects.filter(Email=Email).exists():
@@ -57,3 +58,15 @@ def logout(request):
 
 def charts(request):
     return render(request, 'dashboard/charts.html')
+
+
+def about(request):
+    return render(request, 'dashboard/about.html')
+
+
+def team(request):
+    return render(request, 'dashboard/team.html')
+
+
+def contact(request):
+    return render(request, 'dashboard/contact.html')

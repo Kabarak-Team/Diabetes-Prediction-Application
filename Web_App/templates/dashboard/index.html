@@ -89,6 +89,7 @@
                 <!-- End Logo -->
                 <!-- ============================================================== -->
                 <div class="navbar-collapse collapse" id="navbarSupportedContent" data-navbarbg="skin5">
+                    {% if user.is_authenticated %}
                     <!-- ============================================================== -->
                     <!-- toggle and nav items -->
                     <!-- ============================================================== -->
@@ -218,6 +219,7 @@
                         <!-- User profile and search -->
                         <!-- ============================================================== -->
                     </ul>
+                    {% endif %}
                 </div>
             </nav>
         </header>
@@ -233,6 +235,7 @@
                 <!-- Sidebar navigation-->
                 <nav class="sidebar-nav">
                     <ul id="sidebarnav" class="p-t-30">
+                        {% if user.is_authenticated %}
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu">Dashboard</span></a></li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="charts" aria-expanded="false"><i class="mdi mdi-chart-bar"></i><span class="hide-menu">Charts</span></a></li>
                         <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-account-key"></i><span class="hide-menu">Authentication </span></a>
@@ -241,6 +244,17 @@
                                 <li class="sidebar-item"><a href="register" class="sidebar-link"><i class="mdi mdi-all-inclusive"></i><span class="hide-menu"> Register </span></a></li>
                             </ul>
                         </li>
+                        {% else %}
+                        <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-account-key"></i><span class="hide-menu">User Registration</span></a>
+                            <ul aria-expanded="false" class="collapse  first-level">
+                                <li class="sidebar-item"><a href="login" class="sidebar-link"><i class="mdi mdi-all-inclusive"></i><span class="hide-menu"> Login </span></a></li>
+                                <li class="sidebar-item"><a href="register" class="sidebar-link"><i class="mdi mdi-all-inclusive"></i><span class="hide-menu"> Register </span></a></li>
+                            </ul>
+                        </li>
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="about" aria-expanded="false"><i class="mdi mdi-archive"></i><span class="hide-menu">About Us</span></a></li>
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="team" aria-expanded="false"><i class="mdi mdi-account-multiple"></i><span class="hide-menu">Team</span></a></li>
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="contact" aria-expanded="false"><i class="mdi mdi-cellphone-andrAdminid"></i><span class="hide-menu">Contact Us</span></a></li>
+                        {% endif %}
                     </ul>
                 </nav>
                 <!-- End Sidebar navigation -->
@@ -258,6 +272,7 @@
             <!-- Bread crumb and right sidebar toggle -->
             <!-- ============================================================== -->
             <div class="page-breadcrumb">
+                {% if user.is_authenticated %}
                 <div class="row">
                     <div class="col-12 d-flex no-block align-items-center">
                         <h4 class="page-title">Dashboard-Content</h4>
@@ -271,6 +286,20 @@
                         </div>
                     </div>
                 </div>
+                {% else %}
+                <div class="row">
+                    <div class="col-12 d-flex no-block align-items-center">
+                        <h4 class="page-title">Sign Up to acces content</h4>
+                        <div class="ml-auto text-right">
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="/">Home</a></li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
             </div>
             <!-- ============================================================== -->
             <!-- End Bread crumb and right sidebar toggle -->
@@ -282,6 +311,7 @@
                 <!-- ============================================================== -->
                 <!-- Start Page Content -->
                 <!-- ============================================================== -->
+                {% if user.is_authenticated %}
                 <div class="row">
                     <!-- Column -->
                     <div class="col-md-6 col-lg-6">
@@ -302,6 +332,9 @@
                         </div>
                     </div>
                 </div>
+                {% else %}
+
+                {% endif %}
             </div>
             <!-- ============================================================== -->
             <!-- End Container fluid  -->
@@ -312,6 +345,7 @@
             <footer class="footer text-center bg-dark">
                 All Rights Reserved by <span style="font-family:sanserif;"> Kabarak-Team </span>. Designed and Developed by <a href="https://dedan-okware.netlify.app/">Okware Dedan</a>
             </footer>
+            
             <!-- ============================================================== -->
             <!-- End footer -->
             <!-- ============================================================== -->
