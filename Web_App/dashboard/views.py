@@ -9,22 +9,23 @@ def index(request):
 
 def register(request):
     if request.method == 'POST':
-        Name = request.POST['Name']
-        Username = request.POST['Username']
-        Email = request.POST['Email']
-        Password1 = request.POST['Password1']  
-        Password2 = request.POST['Password2']
+        name = request.POST.get('name')
+        username = request.POST.get('username')
+        email = request.POST.get('email')
+        password1 = request.POST.get('password1')  
+        password2 = request.POST.get('password2')
         
         
-        if Password1 == Password2:
-            if User.objects.filter(Name=Name).exists():
-                messages.info(request,'Username Taken!')
-                return redirect('register')
-            elif User.objects.filter(Email=Email).exists():
-                messages.info(request,'Email Exists!')
-                return redirect('register')
-            else:
-                user = User.objects.create_user(Name=Name, Username=Username, Email=Email, password=Password1)
+        if password1 == password2:
+            if User.objects.filter(username = username).exists():
+               messages.info(request,'Username Taken')
+               return redirect('register')
+            
+            elif User.objects.filter(email = email).exists():
+                 messages.info(request,'Email Taken')
+                 return redirect('register')
+            else:    
+                user = User.objects.create_user(name = name, username = username, password = password1, email = email)
                 user.save()
                 return redirect('login')
         else:
@@ -36,10 +37,10 @@ def register(request):
 
 def login(request):
     if request.method == 'POST':
-        Username = request.POST['Username']
-        password = request.POST['password']
+        username = request.POST.get('username')
+        password = request.POST.get('password')
         
-        user = auth.authenticate(Username=Username, password=password)
+        user = auth.authenticate(username=username, password=password)
         
         if user is not None:
             auth.login(request, user)

@@ -3,7 +3,7 @@ from . import views
 
 app_name = 'dashboard'
 urlpatterns = [
-    path('register',views.register, name='register'),
+    path('register',views.register, name='register'), #127.0.0.1:8000/register
     path('login', views.login, name='login'),
     path('', views.index, name='index'),
     path('charts', views.charts, name='charts'),
